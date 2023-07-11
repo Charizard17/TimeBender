@@ -9,12 +9,16 @@ import Foundation
 
 class TimeController: ObservableObject {
     
-    @Published var selectedHourIndex: Int = 3
     @Published var currentTime: String = ""
+    @Published var selectedHourIndex: Int {
+        didSet {
+            UserDefaults.standard.set(selectedHourIndex, forKey: "selectedHourIndex")
+        }
+    }
     
-    @Published var adjustedHours: Int = 0
-    @Published var adjustedMinutes: Int = 0
-    @Published var adjustedSeconds: Int = 0
+    private var adjustedHours: Int = 0
+    private var adjustedMinutes: Int = 0
+    private var adjustedSeconds: Int = 0
     
     var validHourOptions: [Int] {
         return [16, 18, 20, 24, 30, 32, 36, 40, 45, 48]
@@ -29,6 +33,11 @@ class TimeController: ObservableObject {
     
     var adjustedTime: String {
         return String(format: "%02d:%02d:%02d", adjustedHours, adjustedMinutes, adjustedSeconds)
+    }
+    
+    init() {
+        let savedIndex = UserDefaults.standard.integer(forKey: "selectedHourIndex")
+        selectedHourIndex = (savedIndex != 0) ? savedIndex : 3
     }
     
     func updateTime() {
