@@ -9,14 +9,15 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @State private var isToggleOn: Bool = true
+    @State private var isPushNotificationsOn: Bool = true
+    @State private var isVibrationOn: Bool = true
     
     var body: some View {
         VStack {
             Section(header: Text("Notifications")) {
                 VStack {
-                    Toggle("Push-notifications", isOn: $isToggleOn)
-                    Toggle("Vibration", isOn: $isToggleOn)
+                    Toggle("Push-notifications", isOn: $isPushNotificationsOn)
+                    Toggle("Vibration", isOn: $isVibrationOn)
                 }
             }
             Spacer()
