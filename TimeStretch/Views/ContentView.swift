@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var dateTime: String = ""
+    @ObservedObject var timeController: TimeController = TimeController()
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -32,16 +32,33 @@ struct ContentView: View {
                     .foregroundColor(.purple)
                     .shadow(radius: 5)
                 VStack {
-                    Text(dateTime)
-                        .font(.system(size: 60))
+                    Text(timeController.adjustedTime)
+                        .font(.system(size: 50))
                         .foregroundColor(.white)
-                    Text(dateTime)
+                    Text(timeController.currentTime)
                         .font(.system(size: 20))
                         .foregroundColor(.white)
-                    Text("24h format")
+                    Text("\(timeController.hours)h format")
                         .font(.system(size: 20))
                         .foregroundColor(.white)
                 }
+            }
+            VStack {
+                Picker(selection: $timeController.selectedHourIndex, label: Text("Hours")) {
+                    ForEach(0..<timeController.validHourOptions.count, id: \.self) { index in
+                        Text("\(timeController.validHourOptions[index])").tag(index)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Hours: 24 ---> \(timeController.hours)")
+                        Text("Minutes: 60 ---> \(timeController.minutes)")
+                        Text("Seconds: 60 ---> \(timeController.seconds)")
+                    }
+                }
+                .padding(.top, 10)
             }
             Spacer()
             HStack {
@@ -56,18 +73,12 @@ struct ContentView: View {
                     .foregroundColor(.purple)
             }
         }
-        .padding(.vertical, 100)
-        .padding(.horizontal, 70)
+        .padding(.vertical, 50)
+        .padding(.horizontal, 50)
         .background(.white)
         .onReceive(timer) { _ in
-            updateTime()
+            timeController.updateTime()
         }
-    }
-    
-    func updateTime() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        dateTime = formatter.string(from: Date())
     }
 }
 
