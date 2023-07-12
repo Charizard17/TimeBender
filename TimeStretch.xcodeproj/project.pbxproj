@@ -38,6 +38,7 @@
 /* Begin PBXFileReference section */
 		405B79D32A5D638D00C2C01A /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		405B79D52A5DE80300C2C01A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		405B79D72A5F428100C2C01A /* TimeStretch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeStretch.entitlements; sourceTree = "<group>"; };
 		406A64362A5B43FC004853AF /* TimeStretch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStretch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406A64392A5B43FC004853AF /* TimeStretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchApp.swift; sourceTree = "<group>"; };
 		406A643B2A5B43FC004853AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		406A64382A5B43FC004853AF /* TimeStretch */ = {
 			isa = PBXGroup;
 			children = (
+				405B79D72A5F428100C2C01A /* TimeStretch.entitlements */,
 				406A64392A5B43FC004853AF /* TimeStretchApp.swift */,
 				405B79D22A5D636D00C2C01A /* Controllers */,
 				405B79D12A5D635A00C2C01A /* Views */,
@@ -438,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TimeStretch/TimeStretch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeStretch/Preview Content\"";
@@ -467,6 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TimeStretch/TimeStretch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeStretch/Preview Content\"";
