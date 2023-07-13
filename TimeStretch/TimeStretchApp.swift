@@ -6,12 +6,9 @@
 //
 
 import SwiftUI
-import UserNotifications
 
 @main
 struct TimeStretchApp: App {
-    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -37,5 +34,4 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             }
         }
     }
-    
 }
