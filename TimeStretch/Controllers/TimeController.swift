@@ -5,33 +5,32 @@
 //  Created by Esad Dursun on 11.07.23.
 //
 
-import Foundation
-import UserNotifications
-
-import Foundation
+import SwiftUI
 import UserNotifications
 
 class TimeController: ObservableObject {
     
     @Published var currentTime: String = ""
-    @Published var selectedHourIndex: Int
+    @AppStorage("selectedHourIndex") var selectedHourIndex: Int = 3
     
     private var adjustedTimeComponents: DateComponents = DateComponents()
     private var adjustedTimeHours: Int = 0
     private var adjustedTimeMinutes: Int = 0
     private var adjustedTimeSeconds: Int = 0
     
-    let validHourOptions: [Int] = [16, 18, 20, 24, 30, 32, 36, 40, 45, 48, 1440]
+    let validHourOptions: [Int] = [16, 18, 20, 24, 30, 32, 36, 40, 45, 48]
     
-    var hours: Int {
+    var hoursInADayInSelectedTimeSystem: Int {
+        guard selectedHourIndex >= 0 && selectedHourIndex < validHourOptions.count else {
+            return 24
+        }
         return validHourOptions[selectedHourIndex]
     }
-    
-    var minutes: Int {
-        return 1440 / hours
+
+    var minutesInAHourInSelectedTimeSystem: Int {
+        return 1440 / hoursInADayInSelectedTimeSystem
     }
-    
-    let seconds: Int = 60
+    let secondsInAMinuteInSelectedTimeSystem: Int = 60
     
     let formatter = DateFormatter()
     
@@ -45,11 +44,8 @@ class TimeController: ObservableObject {
     init() {
         formatter.dateFormat = "HH:mm:ss"
         
-        let savedIndex = UserDefaults.standard.integer(forKey: "selectedHourIndex")
-        selectedHourIndex = validHourOptions.indices.contains(savedIndex) ? savedIndex : 3
-        
         updateTime()
-        scheduleHourlyNotifications()
+        scheduleHourlyNotificationsForAdjustedTime()
     }
     
     func updateTime() {
@@ -58,10 +54,10 @@ class TimeController: ObservableObject {
         let startOfDay = calendar.startOfDay(for: now)
         let secondsPassed = Int(now.timeIntervalSince(startOfDay))
         
-        adjustedTimeHours = (secondsPassed / (minutes * seconds)) % hours
-        var remainingSeconds = secondsPassed - adjustedTimeHours * minutes * seconds
-        adjustedTimeMinutes = (remainingSeconds / seconds) % minutes
-        remainingSeconds = remainingSeconds - adjustedTimeMinutes * seconds
+        adjustedTimeHours = (secondsPassed / (minutesInAHourInSelectedTimeSystem * secondsInAMinuteInSelectedTimeSystem)) % hoursInADayInSelectedTimeSystem
+        var remainingSeconds = secondsPassed - adjustedTimeHours * minutesInAHourInSelectedTimeSystem * secondsInAMinuteInSelectedTimeSystem
+        adjustedTimeMinutes = (remainingSeconds / secondsInAMinuteInSelectedTimeSystem) % minutesInAHourInSelectedTimeSystem
+        remainingSeconds = remainingSeconds - adjustedTimeMinutes * secondsInAMinuteInSelectedTimeSystem
         adjustedTimeSeconds = remainingSeconds
         
         adjustedTimeComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
@@ -72,20 +68,27 @@ class TimeController: ObservableObject {
         currentTime = formatter.string(from: now)
     }
     
-    func scheduleHourlyNotifications() {
+    func scheduleHourlyNotificationsForAdjustedTime() {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllPendingNotificationRequests()
         
-        for i in 1...24 {
-            let adjustedHour = (adjustedTimeComponents.hour! + i) % hours
-            let adjustedTime = String(format: "%02d:%02d:%02d", adjustedHour, adjustedTimeComponents.minute!, adjustedTimeComponents.second!)
+        for i in 0..<hoursInADayInSelectedTimeSystem {
+            let adjustedHourForNotificationContent = String(format: "%02d", i)
+            let adjustedTimeForNotificationContent = "\(adjustedHourForNotificationContent):00:00"
+            
+            let triggerComponents = getCurrentTime(adjustedTimeHours: i, adjustedTimeMinutes: 0, adjustedTimeSeconds: 0)
+            
+            let triggeredHour = String(format: "%02d", triggerComponents.hour!)
+            let triggeredMinute = String(format: "%02d", triggerComponents.minute!)
+            let triggeredSecond = String(format: "%02d", triggerComponents.second!)
+            let triggeredTime = "\(triggeredHour):\(triggeredMinute):\(triggeredSecond)"
             
             let content = UNMutableNotificationContent()
             content.title = "Hourly Update"
-            content.body = "Adjusted Time: \(adjustedTime)"
+            content.body = "Adjusted Time: \(adjustedTimeForNotificationContent)"
             content.sound = UNNotificationSound.default
             
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsForAdjustedHour(i), repeats: true)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: true)
             
             let request = UNNotificationRequest(identifier: "HourlyNotification\(i)", content: content, trigger: trigger)
             
@@ -93,25 +96,20 @@ class TimeController: ObservableObject {
                 if let error = error {
                     print("Error scheduling hourly notification: \(error)")
                 } else {
-                    print("Hourly notification scheduled successfully for adjusted time: \(adjustedTime)")
+                    print("Hourly notification scheduled for adjusted time: \(adjustedTimeForNotificationContent), triggered time: \(triggeredTime)")
                 }
             }
         }
     }
-
-    private func dateComponentsForAdjustedHour(_ hourOffset: Int) -> DateComponents {
+    
+    func getCurrentTime(adjustedTimeHours: Int, adjustedTimeMinutes: Int, adjustedTimeSeconds: Int) -> DateComponents {
+        let secondsPassed = adjustedTimeSeconds + adjustedTimeMinutes * secondsInAMinuteInSelectedTimeSystem + adjustedTimeHours * minutesInAHourInSelectedTimeSystem * secondsInAMinuteInSelectedTimeSystem
+        
         let calendar = Calendar.current
-        let now = Date()
+        let startOfDay = calendar.startOfDay(for: Date())
+        let currentTime = calendar.date(byAdding: .second, value: secondsPassed, to: startOfDay)!
         
-        var components = calendar.dateComponents([.year, .month, .day, .hour], from: now)
-        components.minute = 0
-        components.second = 0
-        
-        let adjustedHoursToAdd = (hours - adjustedTimeComponents.hour! + hourOffset) % hours
-        let nextHour = (components.hour! + adjustedHoursToAdd) % hours
-        
-        components.hour = nextHour
-        
-        return components
+        return calendar.dateComponents([.hour, .minute, .second], from: currentTime)
     }
+
 }

@@ -47,9 +47,9 @@ struct ContentView: View {
                                 
                                 HStack {
                                     VStack(alignment: .leading) {
-                                        Text("Hours: 24 ---> \(timeController.hours)")
-                                        Text("Minutes: 60 ---> \(timeController.minutes)")
-                                        Text("Seconds: 60 ---> \(timeController.seconds)")
+                                        Text("Hours: 24 ---> \(timeController.hoursInADayInSelectedTimeSystem)")
+                                        Text("Minutes: 60 ---> \(timeController.minutesInAHourInSelectedTimeSystem)")
+                                        Text("Seconds: 60 ---> \(timeController.secondsInAMinuteInSelectedTimeSystem)")
                                     }
                                 }
                                 .padding(.top, 10)
@@ -84,7 +84,7 @@ struct ContentView: View {
                             Text(timeController.currentTime)
                                 .font(.system(size: 25))
                                 .foregroundColor(.white)
-                            Text("\(timeController.hours)h format")
+                            Text("\(timeController.hoursInADayInSelectedTimeSystem)h format")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
                         }
