@@ -7,3 +7,4 @@
 
 //MARK: - Texts
 let selectedHourIndexKey = "selectedHourIndexKey"
+let isPushNotificationsOnKey = "isPushNotificationsOnKey"

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @ObservedObject var timeController: TimeController = TimeController()
+    @StateObject var timeController: TimeController = TimeController()
     
     @State private var editSelectedHourIndex = false
     
@@ -19,9 +18,9 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 ZStack {
-                    VStack{
+                    VStack {
                         HStack {
-                            NavigationLink(destination: SettingsView()) {
+                            NavigationLink(destination: SettingsView().environmentObject(timeController)) {
                                 Image(systemName: "gearshape")
                                     .resizable()
                                     .frame(width: 50, height: 50)

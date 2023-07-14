@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
-    @State private var isPushNotificationsOn: Bool = true
+    @AppStorage(isPushNotificationsOnKey) private var isPushNotificationsOn: Bool = true
     @State private var isVibrationOn: Bool = true
-    
+
     var body: some View {
         VStack {
             Section(header: Text("Notifications")) {
@@ -25,7 +24,7 @@ struct SettingsView: View {
         .padding(.vertical, 50)
         .padding(.horizontal, 50)
         .background(.white)
-        .toolbar{
+        .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Settings View")
                     .foregroundColor(.purple)
