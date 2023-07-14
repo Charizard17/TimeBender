@@ -8,6 +8,8 @@
 import SwiftUI
 
 class TimeController: ObservableObject {
+    static let shared = TimeController()
+    
     @Published var currentTime: String = ""
     @AppStorage(selectedHourIndexKey) var selectedHourIndex: Int = 3
 

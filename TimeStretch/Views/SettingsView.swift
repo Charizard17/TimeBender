@@ -9,13 +9,21 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage(isPushNotificationsOnKey) private var isPushNotificationsOn: Bool = true
-    @State private var isVibrationOn: Bool = true
-
+    @State private var isVibrationOn = true
+    
+    @StateObject var timeController: TimeController = TimeController()
+    
     var body: some View {
         VStack {
             Section(header: Text("Notifications")) {
                 VStack {
                     Toggle("Push-notifications", isOn: $isPushNotificationsOn)
+                        .onChange(of: isPushNotificationsOn) { newValue in
+                            UserDefaults.standard.set(newValue, forKey: isPushNotificationsOnKey)
+                            print("push-notifications are: \(isPushNotificationsOn)")
+//                            timeController.isPushNotificationsOn = newValue
+//                            timeController.scheduleHourlyNotifications()
+                        }
                     Toggle("Vibration", isOn: $isVibrationOn)
                 }
             }

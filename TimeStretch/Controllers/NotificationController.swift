@@ -11,7 +11,12 @@ import UserNotifications
 class NotificationController {
     static let shared = NotificationController()
 
-    @AppStorage(isPushNotificationsOnKey) var isPushNotificationsOn: Bool = true
+    private let isPushNotificationsOnKey = "isPushNotificationsOnKey"
+
+    var isPushNotificationsOn: Bool {
+        get { UserDefaults.standard.bool(forKey: isPushNotificationsOnKey) }
+        set { UserDefaults.standard.set(newValue, forKey: isPushNotificationsOnKey) }
+    }
 
     private init() {}
 
