@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var timeController: TimeController = TimeController()
+    @StateObject var notificationController: NotificationController = NotificationController.shared
     
     @State private var editSelectedHourIndex = false
     
@@ -103,6 +104,9 @@ struct ContentView: View {
             .background(.white)
             .onReceive(timer) { _ in
                 timeController.updateTime()
+            }
+            .onChange(of: timeController.selectedHourIndex) { _ in
+                notificationController.handleHourSystemChange()
             }
         }
     }

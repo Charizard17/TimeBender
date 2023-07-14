@@ -11,8 +11,6 @@ struct SettingsView: View {
     @AppStorage(isPushNotificationsOnKey) private var isPushNotificationsOn: Bool = true
     @State private var isVibrationOn = true
     
-    @StateObject var timeController: TimeController = TimeController()
-    
     var body: some View {
         VStack {
             Section(header: Text("Notifications")) {
@@ -21,8 +19,7 @@ struct SettingsView: View {
                         .onChange(of: isPushNotificationsOn) { newValue in
                             UserDefaults.standard.set(newValue, forKey: isPushNotificationsOnKey)
                             print("push-notifications are: \(isPushNotificationsOn)")
-//                            timeController.isPushNotificationsOn = newValue
-//                            timeController.scheduleHourlyNotifications()
+                            handleNotificationUpdates()
                         }
                     Toggle("Vibration", isOn: $isVibrationOn)
                 }
@@ -39,6 +36,18 @@ struct SettingsView: View {
             }
         }
     }
+    
+    private func handleNotificationUpdates() {
+        let timeController = TimeController.shared
+        let notificationController = NotificationController.shared
+        notificationController.isPushNotificationsOn = isPushNotificationsOn
+        notificationController.scheduleHourlyNotifications(
+            hoursInADay: timeController.hoursInADayInSelectedTimeSystem,
+            minutesInAHour: timeController.minutesInAHourInSelectedTimeSystem,
+            secondsInAMinute: timeController.secondsInAMinuteInSelectedTimeSystem
+        )
+    }
+
 }
 
 struct SettingsView_Previews: PreviewProvider {
