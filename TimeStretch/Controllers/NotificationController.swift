@@ -18,6 +18,7 @@ class NotificationController: ObservableObject {
     func scheduleHourlyNotifications(hoursInADay: Int, minutesInAHour: Int, secondsInAMinute: Int) {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllPendingNotificationRequests()
+        notificationCenter.removeAllDeliveredNotifications()
         
         guard isNotificationsOn else {
             return
@@ -41,8 +42,7 @@ class NotificationController: ObservableObject {
             )
             
             let content = UNMutableNotificationContent()
-            
-            content.title = "Hourly Update in \(hoursInADay)-h Time System"
+            content.title = "Update in \(hoursInADay)-h Time System"
             content.body = "Current Time is \(adjustedTimeForNotificationContent)"
             content.sound = UNNotificationSound.defaultCritical
             
@@ -59,6 +59,7 @@ class NotificationController: ObservableObject {
             }
         }
     }
+
     
     func handleHourSystemChange() {
         let timeController = TimeController.shared
