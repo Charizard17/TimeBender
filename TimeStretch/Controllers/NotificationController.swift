@@ -11,15 +11,17 @@ import UserNotifications
 class NotificationController: ObservableObject {
     static let shared = NotificationController()
     
-    @AppStorage(isPushNotificationsOnKey) var isPushNotificationsOn: Bool = true
-    @AppStorage(isSoundNotificationsOnKey) var isSoundNotificationsOn: Bool = true
-    @AppStorage(isVibrationNotificationsOnKey) var isVibrationNotificationsOn: Bool = true
+    @AppStorage(isNotificationsOnKey) var isNotificationsOn: Bool = true
     
     private init() {}
     
     func scheduleHourlyNotifications(hoursInADay: Int, minutesInAHour: Int, secondsInAMinute: Int) {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllPendingNotificationRequests()
+        
+        guard isNotificationsOn else {
+            return
+        }
         
         for i in 0..<hoursInADay {
             let adjustedTimeForNotificationContent = "\(String(format: "%02d", i)):00:00"
@@ -40,20 +42,11 @@ class NotificationController: ObservableObject {
             
             let content = UNMutableNotificationContent()
             
-            if isPushNotificationsOn {
-                content.title = "Hourly Update in \(hoursInADay)-h Time System"
-                content.body = "Current Time is \(adjustedTimeForNotificationContent)"
-            }
+            content.title = "Hourly Update in \(hoursInADay)-h Time System"
+            content.body = "Current Time is \(adjustedTimeForNotificationContent)"
+            content.sound = UNNotificationSound.defaultCritical
             
-            if isSoundNotificationsOn {
-                content.sound = UNNotificationSound.default
-            }
-            
-            if isVibrationNotificationsOn {
-                content.sound = UNNotificationSound.defaultCritical
-            }
-            
-            let trigger: UNCalendarNotificationTrigger? = isPushNotificationsOn ? UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: true) : nil
+            let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: true)
             
             let request = UNNotificationRequest(identifier: "HourlyNotification\(i)", content: content, trigger: trigger)
             

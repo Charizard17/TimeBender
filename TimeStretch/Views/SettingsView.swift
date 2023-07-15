@@ -12,21 +12,11 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            Section(header: Text("Notifications")) {
+            Section {
                 VStack {
-                    Toggle("Push", isOn: $notificationController.isPushNotificationsOn)
-                        .onChange(of: notificationController.isPushNotificationsOn) { newValue in
-                            UserDefaults.standard.set(newValue, forKey: isPushNotificationsOnKey)
-                            handleNotificationUpdates()
-                        }
-                    Toggle("Sound", isOn: $notificationController.isSoundNotificationsOn)
-                        .onChange(of: notificationController.isSoundNotificationsOn) { newValue in
-                            UserDefaults.standard.set(newValue, forKey: isSoundNotificationsOnKey)
-                            handleNotificationUpdates()
-                        }
-                    Toggle("Vibration", isOn: $notificationController.isVibrationNotificationsOn)
-                        .onChange(of: notificationController.isVibrationNotificationsOn) { newValue in
-                            UserDefaults.standard.set(newValue, forKey: isVibrationNotificationsOnKey)
+                    Toggle("Notifications", isOn: $notificationController.isNotificationsOn)
+                        .onChange(of: notificationController.isNotificationsOn) { newValue in
+                            UserDefaults.standard.set(newValue, forKey: isNotificationsOnKey)
                             handleNotificationUpdates()
                         }
                 }
@@ -53,6 +43,7 @@ struct SettingsView: View {
         )
     }
 }
+
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
