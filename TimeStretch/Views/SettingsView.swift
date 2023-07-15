@@ -8,20 +8,27 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage(isPushNotificationsOnKey) private var isPushNotificationsOn: Bool = true
-    @State private var isVibrationOn = true
+    @ObservedObject private var notificationController = NotificationController.shared
     
     var body: some View {
         VStack {
             Section(header: Text("Notifications")) {
                 VStack {
-                    Toggle("Push-notifications", isOn: $isPushNotificationsOn)
-                        .onChange(of: isPushNotificationsOn) { newValue in
+                    Toggle("Push", isOn: $notificationController.isPushNotificationsOn)
+                        .onChange(of: notificationController.isPushNotificationsOn) { newValue in
                             UserDefaults.standard.set(newValue, forKey: isPushNotificationsOnKey)
-                            print("push-notifications are: \(isPushNotificationsOn)")
                             handleNotificationUpdates()
                         }
-                    Toggle("Vibration", isOn: $isVibrationOn)
+                    Toggle("Sound", isOn: $notificationController.isSoundNotificationsOn)
+                        .onChange(of: notificationController.isSoundNotificationsOn) { newValue in
+                            UserDefaults.standard.set(newValue, forKey: isSoundNotificationsOnKey)
+                            handleNotificationUpdates()
+                        }
+                    Toggle("Vibration", isOn: $notificationController.isVibrationNotificationsOn)
+                        .onChange(of: notificationController.isVibrationNotificationsOn) { newValue in
+                            UserDefaults.standard.set(newValue, forKey: isVibrationNotificationsOnKey)
+                            handleNotificationUpdates()
+                        }
                 }
             }
             Spacer()
@@ -39,15 +46,12 @@ struct SettingsView: View {
     
     private func handleNotificationUpdates() {
         let timeController = TimeController.shared
-        let notificationController = NotificationController.shared
-        notificationController.isPushNotificationsOn = isPushNotificationsOn
         notificationController.scheduleHourlyNotifications(
             hoursInADay: timeController.hoursInADayInSelectedTimeSystem,
             minutesInAHour: timeController.minutesInAHourInSelectedTimeSystem,
             secondsInAMinute: timeController.secondsInAMinuteInSelectedTimeSystem
         )
     }
-
 }
 
 struct SettingsView_Previews: PreviewProvider {

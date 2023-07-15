@@ -8,3 +8,5 @@
 //MARK: - Texts
 let selectedHourIndexKey = "selectedHourIndexKey"
 let isPushNotificationsOnKey = "isPushNotificationsOnKey"
+let isSoundNotificationsOnKey = "isSoundNotificationsOnKey"
+let isVibrationNotificationsOnKey = "isVibrationNotificationsOnKey"

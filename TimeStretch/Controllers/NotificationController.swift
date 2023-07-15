@@ -11,20 +11,15 @@ import UserNotifications
 class NotificationController: ObservableObject {
     static let shared = NotificationController()
     
-    var isPushNotificationsOn: Bool {
-        get { UserDefaults.standard.bool(forKey: isPushNotificationsOnKey) }
-        set { UserDefaults.standard.set(newValue, forKey: isPushNotificationsOnKey) }
-    }
+    @AppStorage(isPushNotificationsOnKey) var isPushNotificationsOn: Bool = true
+    @AppStorage(isSoundNotificationsOnKey) var isSoundNotificationsOn: Bool = true
+    @AppStorage(isVibrationNotificationsOnKey) var isVibrationNotificationsOn: Bool = true
     
     private init() {}
     
     func scheduleHourlyNotifications(hoursInADay: Int, minutesInAHour: Int, secondsInAMinute: Int) {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllPendingNotificationRequests()
-        
-        guard isPushNotificationsOn else {
-            return
-        }
         
         for i in 0..<hoursInADay {
             let adjustedTimeForNotificationContent = "\(String(format: "%02d", i)):00:00"
@@ -44,11 +39,21 @@ class NotificationController: ObservableObject {
             )
             
             let content = UNMutableNotificationContent()
-            content.title = "Hourly Update in \(hoursInADay)-h Time System"
-            content.body = "Current Time is \(adjustedTimeForNotificationContent)"
-            content.sound = UNNotificationSound.default
             
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: true)
+            if isPushNotificationsOn {
+                content.title = "Hourly Update in \(hoursInADay)-h Time System"
+                content.body = "Current Time is \(adjustedTimeForNotificationContent)"
+            }
+            
+            if isSoundNotificationsOn {
+                content.sound = UNNotificationSound.default
+            }
+            
+            if isVibrationNotificationsOn {
+                content.sound = UNNotificationSound.defaultCritical
+            }
+            
+            let trigger: UNCalendarNotificationTrigger? = isPushNotificationsOn ? UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: true) : nil
             
             let request = UNNotificationRequest(identifier: "HourlyNotification\(i)", content: content, trigger: trigger)
             
