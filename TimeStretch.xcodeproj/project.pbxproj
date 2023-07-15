@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		405B79D42A5D638D00C2C01A /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79D32A5D638D00C2C01A /* TimeController.swift */; };
-		405B79D62A5DE80300C2C01A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79D52A5DE80300C2C01A /* SettingsView.swift */; };
 		405B79DA2A61614400C2C01A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79D92A61614400C2C01A /* Constants.swift */; };
 		405B79DC2A616C7600C2C01A /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79DB2A616C7600C2C01A /* TimeUtils.swift */; };
 		405B79DE2A6176A700C2C01A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79DD2A6176A700C2C01A /* NotificationController.swift */; };
 		405B79E02A6184A600C2C01A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79DF2A6184A600C2C01A /* AppDelegate.swift */; };
+		405B79E32A6343F800C2C01A /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79E22A6343F800C2C01A /* ToastView.swift */; };
 		406A643A2A5B43FC004853AF /* TimeStretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A64392A5B43FC004853AF /* TimeStretchApp.swift */; };
 		406A643C2A5B43FC004853AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A643B2A5B43FC004853AF /* ContentView.swift */; };
 		406A643E2A5B43FD004853AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406A643D2A5B43FD004853AF /* Assets.xcassets */; };
@@ -41,12 +41,12 @@
 
 /* Begin PBXFileReference section */
 		405B79D32A5D638D00C2C01A /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
-		405B79D52A5DE80300C2C01A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		405B79D72A5F428100C2C01A /* TimeStretch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeStretch.entitlements; sourceTree = "<group>"; };
 		405B79D92A61614400C2C01A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		405B79DB2A616C7600C2C01A /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		405B79DD2A6176A700C2C01A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		405B79DF2A6184A600C2C01A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		405B79E22A6343F800C2C01A /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		406A64362A5B43FC004853AF /* TimeStretch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStretch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406A64392A5B43FC004853AF /* TimeStretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchApp.swift; sourceTree = "<group>"; };
 		406A643B2A5B43FC004853AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				406A643B2A5B43FC004853AF /* ContentView.swift */,
-				405B79D52A5DE80300C2C01A /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,6 +108,14 @@
 				405B79DB2A616C7600C2C01A /* TimeUtils.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		405B79E12A6343EC00C2C01A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				405B79E22A6343F800C2C01A /* ToastView.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		406A642D2A5B43FC004853AF = {
@@ -137,8 +144,9 @@
 				405B79D72A5F428100C2C01A /* TimeStretch.entitlements */,
 				406A64392A5B43FC004853AF /* TimeStretchApp.swift */,
 				405B79D82A61613600C2C01A /* Helpers */,
-				405B79D22A5D636D00C2C01A /* Controllers */,
+				405B79E12A6343EC00C2C01A /* ViewModels */,
 				405B79D12A5D635A00C2C01A /* Views */,
+				405B79D22A5D636D00C2C01A /* Controllers */,
 				406A643D2A5B43FD004853AF /* Assets.xcassets */,
 				406A643F2A5B43FD004853AF /* Preview Content */,
 				405B79DF2A6184A600C2C01A /* AppDelegate.swift */,
@@ -301,12 +309,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405B79E32A6343F800C2C01A /* ToastView.swift in Sources */,
 				405B79E02A6184A600C2C01A /* AppDelegate.swift in Sources */,
 				405B79DA2A61614400C2C01A /* Constants.swift in Sources */,
 				405B79DC2A616C7600C2C01A /* TimeUtils.swift in Sources */,
 				405B79D42A5D638D00C2C01A /* TimeController.swift in Sources */,
 				405B79DE2A6176A700C2C01A /* NotificationController.swift in Sources */,
-				405B79D62A5DE80300C2C01A /* SettingsView.swift in Sources */,
 				406A643C2A5B43FC004853AF /* ContentView.swift in Sources */,
 				406A643A2A5B43FC004853AF /* TimeStretchApp.swift in Sources */,
 			);

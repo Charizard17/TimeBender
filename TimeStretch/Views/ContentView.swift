@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var notificationController = NotificationController.shared
     @StateObject var timeController: TimeController = TimeController()
-    @StateObject var notificationController: NotificationController = NotificationController.shared
     
     @State private var editSelectedHourIndex = false
+    @State private var showToast = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -21,17 +22,22 @@ struct ContentView: View {
                 ZStack {
                     VStack {
                         HStack {
-                            NavigationLink(destination: SettingsView().environmentObject(timeController)) {
-                                Image(systemName: "gearshape")
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
-                                    .foregroundColor(.purple)
-                            }
-                            Spacer()
-                            Image(systemName: "timer")
+                            Image(systemName: notificationController.isNotificationsOn ? "bell.fill" : "bell.slash.fill")
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.purple)
+                                .onTapGesture {
+                                    notificationController.isNotificationsOn.toggle()
+                                    UserDefaults.standard.set(notificationController.isNotificationsOn, forKey: isNotificationsOnKey)
+                                    notificationController.scheduleHourlyNotifications(
+                                        hoursInADay: timeController.hoursInADayInSelectedTimeSystem,
+                                        minutesInAHour: timeController.minutesInAHourInSelectedTimeSystem,
+                                        secondsInAMinute: timeController.secondsInAMinuteInSelectedTimeSystem
+                                    )
+                                    showToast = true
+                                }
+                            Spacer()
+                            
                         }
                         
                         Spacer()
@@ -67,10 +73,6 @@ struct ContentView: View {
                                     .foregroundColor(.purple)
                             }
                             Spacer()
-                            Image(systemName: "calendar")
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(.purple)
                         }
                     }
                     ZStack {
@@ -108,6 +110,17 @@ struct ContentView: View {
             .onChange(of: timeController.selectedHourIndex) { _ in
                 notificationController.handleHourSystemChange()
             }
+            .overlay(
+                Group {
+                    if showToast {
+                        ToastView(message: notificationController.isNotificationsOn ? "Notifications activated" : "Notifications deactivated", duration: 2.0, toastColor: .purple) {
+                            showToast = false
+                        }
+                        .offset(y: -200)
+                        .animation(.easeInOut(duration: 0.3))
+                    }
+                }
+            )
         }
     }
 }

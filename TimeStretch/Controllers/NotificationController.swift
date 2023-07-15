@@ -42,8 +42,8 @@ class NotificationController: ObservableObject {
             )
             
             let content = UNMutableNotificationContent()
-            content.title = "Update in \(hoursInADay)-h Time System"
-            content.body = "Current Time is \(adjustedTimeForNotificationContent)"
+            content.title = "Update in \(hoursInADay)-Hour Clock"
+            content.body = "Current Time: \(adjustedTimeForNotificationContent)"
             content.sound = UNNotificationSound.defaultCritical
             
             let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: true)
