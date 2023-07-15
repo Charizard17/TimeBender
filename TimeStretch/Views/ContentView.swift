@@ -12,7 +12,9 @@ struct ContentView: View {
     @StateObject var timeController: TimeController = TimeController()
     
     @State private var editSelectedHourIndex = false
-    @State private var showToast = false
+    @State private var showNotificationsToast = false
+    @State private var showPickerToast = false
+    @State private var selectedHourIndex = 0
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -34,35 +36,21 @@ struct ContentView: View {
                                         minutesInAHour: timeController.minutesInAHourInSelectedTimeSystem,
                                         secondsInAMinute: timeController.secondsInAMinuteInSelectedTimeSystem
                                     )
-                                    showToast = true
+                                    showNotificationsToast = true
                                 }
                             Spacer()
                             
                         }
                         
                         Spacer()
-                        
                         if editSelectedHourIndex {
                             VStack {
-                                Picker(selection: $timeController.selectedHourIndex, label: Text("Hours")) {
-                                    ForEach(0..<timeController.validHourOptions.count, id: \.self) { index in
-                                        Text("\(timeController.validHourOptions[index])").tag(index)
-                                    }
-                                }
-                                .pickerStyle(SegmentedPickerStyle())
-                                
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text("Hours: 24 ---> \(timeController.hoursInADayInSelectedTimeSystem)")
-                                        Text("Minutes: 60 ---> \(timeController.minutesInAHourInSelectedTimeSystem)")
-                                        Text("Seconds: 60 ---> \(timeController.secondsInAMinuteInSelectedTimeSystem)")
-                                    }
+                                SegmentedView($selectedHourIndex, selections: Array(timeController.validHourOptions)) {
+                                    showPickerToast = true
                                 }
                                 .padding(.top, 10)
                             }
-                            
                         }
-                        
                         HStack {
                             Button(action: {
                                 editSelectedHourIndex.toggle()
@@ -71,8 +59,18 @@ struct ContentView: View {
                                     .resizable()
                                     .frame(width: 50, height: 50)
                                     .foregroundColor(.purple)
+                                
                             }
                             Spacer()
+                            if editSelectedHourIndex {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text("Hours:     24 ---> \(timeController.hoursInADayInSelectedTimeSystem)")
+                                        Text("Minutes:  60 ---> \(timeController.minutesInAHourInSelectedTimeSystem)")
+                                        Text("Seconds: 60 ---> \(timeController.secondsInAMinuteInSelectedTimeSystem)")
+                                    }
+                                }
+                            }
                         }
                     }
                     ZStack {
@@ -86,7 +84,7 @@ struct ContentView: View {
                                 .font(.system(size: 25, design: .monospaced))
                                 .foregroundColor(.white)
                             Spacer()
-                            Text("\(timeController.hoursInADayInSelectedTimeSystem)-h clock")
+                            Text("\(timeController.hoursInADayInSelectedTimeSystem)-h Clock")
                                 .font(.system(size: 20, design: .monospaced))
                                 .foregroundColor(.white)
                         }
@@ -104,15 +102,24 @@ struct ContentView: View {
             .onReceive(timer) { _ in
                 timeController.updateTime()
             }
-            .onChange(of: timeController.selectedHourIndex) { _ in
+            .onChange(of: selectedHourIndex) { _ in
+                timeController.selectedHourIndex = selectedHourIndex
                 notificationController.handleHourSystemChange()
             }
             .overlay(
                 Group {
-                    if showToast {
+                    if showNotificationsToast {
                         withAnimation(.easeInOut(duration: 0.3)) {
-                            ToastView(message: notificationController.isNotificationsOn ? notificationsActivated : notificationsDeactivated, duration: 2.0, toastColor: .purple) {
-                                showToast = false
+                            ToastView(message: notificationController.isNotificationsOn ? notificationsActivated : notificationsDeactivated, duration: 1.2, toastColor: .purple) {
+                                showNotificationsToast = false
+                            }
+                            .offset(y: -200)
+                        }
+                    }
+                    if showPickerToast {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            ToastView(message: "\(timeController.hoursInADayInSelectedTimeSystem)-h Clock selected", duration: 1.2, toastColor: .purple) {
+                                showPickerToast = false
                             }
                             .offset(y: -200)
                         }
