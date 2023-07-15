@@ -79,30 +79,27 @@ struct ContentView: View {
                         Rectangle()
                             .foregroundColor(.purple)
                             .shadow(radius: 5)
-                            .cornerRadius(100)
-                            .frame(height: 250)
+                            .cornerRadius(80)
+                            .frame(height: 200)
                         VStack {
-                            Spacer()
                             Text(timeController.currentTime)
-                                .font(.system(size: 25))
+                                .font(.system(size: 25, design: .monospaced))
                                 .foregroundColor(.white)
-                            Text("\(timeController.hoursInADayInSelectedTimeSystem)h format")
-                                .font(.system(size: 20))
+                            Spacer()
+                            Text("\(timeController.hoursInADayInSelectedTimeSystem)-h clock")
+                                .font(.system(size: 20, design: .monospaced))
                                 .foregroundColor(.white)
                         }
                         .padding(.bottom, 10)
-                        VStack(alignment: .leading) {
-                            Text(timeController.adjustedTime)
-                                .font(.system(size: 65))
-                                .foregroundColor(.white)
-                                .padding(.bottom, 20)
-                        }
+                        Text(timeController.adjustedTime.padding(toLength: 8, withPad: "0", startingAt: 0))
+                            .font(.system(size: 65, weight: .semibold, design: .monospaced))
+                            .foregroundColor(.white)
                     }
-                    .frame(height: 250)
+                    .frame(height: 200)
                 }
             }
             .padding(.vertical, 50)
-            .padding(.horizontal, 50)
+            .padding(.horizontal, 20)
             .background(.white)
             .onReceive(timer) { _ in
                 timeController.updateTime()
@@ -113,11 +110,12 @@ struct ContentView: View {
             .overlay(
                 Group {
                     if showToast {
-                        ToastView(message: notificationController.isNotificationsOn ? "Notifications activated" : "Notifications deactivated", duration: 2.0, toastColor: .purple) {
-                            showToast = false
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            ToastView(message: notificationController.isNotificationsOn ? notificationsActivated : notificationsDeactivated, duration: 2.0, toastColor: .purple) {
+                                showToast = false
+                            }
+                            .offset(y: -200)
                         }
-                        .offset(y: -200)
-                        .animation(.easeInOut(duration: 0.3))
                     }
                 }
             )

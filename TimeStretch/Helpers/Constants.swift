@@ -8,3 +8,6 @@
 //MARK: - Texts
 let selectedHourIndexKey = "selectedHourIndexKey"
 let isNotificationsOnKey = "isNotificationsOn"
+
+let notificationsActivated = "Notifications activated"
+let notificationsDeactivated = "Notifications deactivated"
