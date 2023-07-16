@@ -34,7 +34,6 @@ struct SegmentedView: View {
             .pickerStyle(.segmented)
             .tint(.purple)
         }
-        .padding(.top, 10)
         .onChange(of: currentIndex, perform: { _ in
             onChange?()
         })

@@ -11,13 +11,18 @@ struct ContentView: View {
     @ObservedObject private var notificationController = NotificationController.shared
     @StateObject var timeController: TimeController = TimeController()
     
-    @State private var selectedHourIndex = 0
+    @State private var selectedHourIndex: Int
     @State private var editSelectedHourIndex = false
     @State private var showNotificationsToast = false
     @State private var showPickerToast = false
     @State private var showInfoAlert = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    init() {
+        let storedHourIndex = UserDefaults.standard.integer(forKey: selectedHourIndexKey)
+        _selectedHourIndex = State(initialValue: storedHourIndex)
+    }
     
     var body: some View {
         NavigationView {
@@ -101,40 +106,6 @@ struct ContentView: View {
                                 
                             }
                             Spacer()
-                            if editSelectedHourIndex {
-//                                HStack {
-//                                    VStack(alignment: .leading) {
-//                                        Text("Hours:     24 ---> \(timeController.hoursInADayInSelectedTimeSystem)")
-//                                        Text("Minutes:  60 ---> \(timeController.minutesInAHourInSelectedTimeSystem)")
-//                                        Text("Seconds: 60 ---> \(timeController.secondsInAMinuteInSelectedTimeSystem)")
-//                                    }
-//                                }
-//                                HStack {
-//                                    Spacer()
-//                                    VStack(alignment: .leading) {
-//                                        Label("Hour", systemImage: "clock")
-//                                        Text("24 → \(timeController.hoursInADayInSelectedTimeSystem)")
-//                                            .font(.system(size: 15))
-//                                            .foregroundColor(.gray)
-//                                    }
-//                                    Spacer()
-//                                    VStack(alignment: .leading) {
-//                                        Label("Min", systemImage: "clock")
-//                                        Text("60 → \(timeController.minutesInAHourInSelectedTimeSystem)")
-//                                            .font(.system(size: 15))
-//                                            .foregroundColor(.gray)
-//                                    }
-//                                    Spacer()
-//                                    VStack(alignment: .leading) {
-//                                        Label("Sec", systemImage: "clock")
-//                                        Text("60 → \(timeController.secondsInAMinuteInSelectedTimeSystem)")
-//                                            .font(.system(size: 15))
-//                                            .foregroundColor(.gray)
-//                                    }
-//                                }
-//                                .padding(.top, 10)
-
-                            }
                         }
                     }
                     ZStack {
