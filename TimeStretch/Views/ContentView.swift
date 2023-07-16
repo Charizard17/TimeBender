@@ -62,11 +62,33 @@ struct ContentView: View {
                         Spacer()
                         if editSelectedHourIndex {
                             VStack {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Label("Hours", systemImage: "clock")
+                                        Text("24 → \(timeController.hoursInADayInSelectedTimeSystem)")
+                                            .font(.system(size: 15))
+                                            .foregroundColor(.gray)
+                                    }
+                                    Spacer()
+                                    VStack(alignment: .leading) {
+                                        Label("Minutes", systemImage: "clock")
+                                        Text("60 → \(timeController.minutesInAHourInSelectedTimeSystem)")
+                                            .font(.system(size: 15))
+                                            .foregroundColor(.gray)
+                                    }
+                                    Spacer()
+                                    VStack(alignment: .leading) {
+                                        Label("Seconds", systemImage: "clock")
+                                        Text("60 → \(timeController.secondsInAMinuteInSelectedTimeSystem)")
+                                            .font(.system(size: 15))
+                                            .foregroundColor(.gray)
+                                    }
+                                }
                                 SegmentedView($selectedHourIndex, selections: Array(timeController.validHourOptions)) {
                                     showPickerToast = true
                                 }
-                                .padding(.top, 10)
                             }
+                            .padding(.bottom, 20)
                         }
                         HStack {
                             Button(action: {
@@ -80,13 +102,38 @@ struct ContentView: View {
                             }
                             Spacer()
                             if editSelectedHourIndex {
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text("Hours:     24 ---> \(timeController.hoursInADayInSelectedTimeSystem)")
-                                        Text("Minutes:  60 ---> \(timeController.minutesInAHourInSelectedTimeSystem)")
-                                        Text("Seconds: 60 ---> \(timeController.secondsInAMinuteInSelectedTimeSystem)")
-                                    }
-                                }
+//                                HStack {
+//                                    VStack(alignment: .leading) {
+//                                        Text("Hours:     24 ---> \(timeController.hoursInADayInSelectedTimeSystem)")
+//                                        Text("Minutes:  60 ---> \(timeController.minutesInAHourInSelectedTimeSystem)")
+//                                        Text("Seconds: 60 ---> \(timeController.secondsInAMinuteInSelectedTimeSystem)")
+//                                    }
+//                                }
+//                                HStack {
+//                                    Spacer()
+//                                    VStack(alignment: .leading) {
+//                                        Label("Hour", systemImage: "clock")
+//                                        Text("24 → \(timeController.hoursInADayInSelectedTimeSystem)")
+//                                            .font(.system(size: 15))
+//                                            .foregroundColor(.gray)
+//                                    }
+//                                    Spacer()
+//                                    VStack(alignment: .leading) {
+//                                        Label("Min", systemImage: "clock")
+//                                        Text("60 → \(timeController.minutesInAHourInSelectedTimeSystem)")
+//                                            .font(.system(size: 15))
+//                                            .foregroundColor(.gray)
+//                                    }
+//                                    Spacer()
+//                                    VStack(alignment: .leading) {
+//                                        Label("Sec", systemImage: "clock")
+//                                        Text("60 → \(timeController.secondsInAMinuteInSelectedTimeSystem)")
+//                                            .font(.system(size: 15))
+//                                            .foregroundColor(.gray)
+//                                    }
+//                                }
+//                                .padding(.top, 10)
+
                             }
                         }
                     }
@@ -113,7 +160,7 @@ struct ContentView: View {
                     .frame(height: 200)
                 }
             }
-            .padding(.bottom, 50)
+            .padding(.bottom, 30)
             .padding(.horizontal, 20)
             .background(.white)
             .onReceive(timer) { _ in
