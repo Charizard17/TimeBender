@@ -21,6 +21,15 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                HStack {
+                    Spacer()
+                    Image(timeStretchLogo)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
+                    Spacer()
+                }
+                .padding(.top, 10)
                 ZStack {
                     VStack {
                         HStack {
@@ -39,7 +48,6 @@ struct ContentView: View {
                                     showNotificationsToast = true
                                 }
                             Spacer()
-                            
                         }
                         
                         Spacer()
@@ -96,7 +104,7 @@ struct ContentView: View {
                     .frame(height: 200)
                 }
             }
-            .padding(.vertical, 50)
+            .padding(.bottom, 50)
             .padding(.horizontal, 20)
             .background(.white)
             .onReceive(timer) { _ in
