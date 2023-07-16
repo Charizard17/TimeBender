@@ -11,10 +11,11 @@ struct ContentView: View {
     @ObservedObject private var notificationController = NotificationController.shared
     @StateObject var timeController: TimeController = TimeController()
     
+    @State private var selectedHourIndex = 0
     @State private var editSelectedHourIndex = false
     @State private var showNotificationsToast = false
     @State private var showPickerToast = false
-    @State private var selectedHourIndex = 0
+    @State private var showInfoAlert = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -48,6 +49,14 @@ struct ContentView: View {
                                     showNotificationsToast = true
                                 }
                             Spacer()
+                            Button(action: {
+                                showInfoAlert = true
+                            }) {
+                                Image(systemName: "info.circle")
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                    .foregroundColor(.purple)
+                            }
                         }
                         
                         Spacer()
@@ -134,6 +143,13 @@ struct ContentView: View {
                     }
                 }
             )
+            .alert(isPresented: $showInfoAlert) {
+                Alert(
+                    title: Text(infoTitle),
+                    message: Text(infoMessage),
+                    dismissButton: .default(Text("Close"))
+                )
+            }
         }
     }
 }
