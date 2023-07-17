@@ -32,10 +32,10 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         Text("Time")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 20, weight: .bold, design: .monospaced))
                             .foregroundColor(.purple)
                     }
-                    .frame(width: 80)
+                    .frame(width: 100)
                     .padding(.trailing, -10)
                     Image(timeStretchLogo)
                         .resizable()
@@ -43,11 +43,11 @@ struct ContentView: View {
                         .frame(width: 50, height: 50)
                     HStack {
                         Text("Stretch")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 20, weight: .bold, design: .monospaced))
                         .foregroundColor(.purple)
                         Spacer()
                     }
-                    .frame(width: 80)
+                    .frame(width: 100)
                     .padding(.leading, -10)
                     Spacer()
                 }
@@ -84,26 +84,11 @@ struct ContentView: View {
                         if editSelectedHourIndex {
                             VStack {
                                 HStack {
-                                    VStack(alignment: .leading) {
-                                        Label("Hours", systemImage: "clock")
-                                        Text("24 → \(timeController.hoursInADayInSelectedTimeSystem)")
-                                            .font(.system(size: 15))
-                                            .foregroundColor(.gray)
-                                    }
+                                    AdjustedClockTextView(labelText: "Hours", selectedTimeText: "24 → \(timeController.hoursInADayInSelectedTimeSystem)")
                                     Spacer()
-                                    VStack(alignment: .leading) {
-                                        Label("Minutes", systemImage: "clock")
-                                        Text("60 → \(timeController.minutesInAHourInSelectedTimeSystem)")
-                                            .font(.system(size: 15))
-                                            .foregroundColor(.gray)
-                                    }
+                                    AdjustedClockTextView(labelText: "Minutes", selectedTimeText: "60 → \(timeController.minutesInAHourInSelectedTimeSystem)")
                                     Spacer()
-                                    VStack(alignment: .leading) {
-                                        Label("Seconds", systemImage: "clock")
-                                        Text("60 → \(timeController.secondsInAMinuteInSelectedTimeSystem)")
-                                            .font(.system(size: 15))
-                                            .foregroundColor(.gray)
-                                    }
+                                    AdjustedClockTextView(labelText: "Seconds", selectedTimeText: "60 → \(timeController.secondsInAMinuteInSelectedTimeSystem)")
                                 }
                                 SegmentedView($selectedHourIndex, selections: Array(timeController.validHourOptions)) {
                                     showPickerToast = true
@@ -129,22 +114,32 @@ struct ContentView: View {
                             .foregroundColor(.purple)
                             .shadow(radius: 5)
                             .cornerRadius(80)
-                            .frame(height: 200)
+                            .frame(height: 250)
                         VStack {
-                            Text(timeController.currentTime)
-                                .font(.system(size: 25, design: .monospaced))
-                                .foregroundColor(.white)
                             Spacer()
-                            Text("\(timeController.hoursInADayInSelectedTimeSystem)-h Clock")
-                                .font(.system(size: 20, design: .monospaced))
+                            VStack {
+                                Text(timeController.adjustedTime.padding(toLength: 8, withPad: "0", startingAt: 0))
+                                    .font(.system(size: 60, weight: .bold, design: .monospaced))
                                 .foregroundColor(.white)
+                                Text("in \(timeController.hoursInADayInSelectedTimeSystem)-h Clock")
+                                    .font(.system(size: 20, design: .monospaced))
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.top, 30)
+                            Spacer()
+                            VStack {
+                                Text(timeController.currentTime)
+                                    .font(.system(size: 30, weight: .semibold, design: .monospaced))
+                                    .foregroundColor(.white)
+                                Text("in 24-h Clock")
+                                    .font(.system(size: 20, design: .monospaced))
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.bottom, 10)
                         }
-                        .padding(.bottom, 10)
-                        Text(timeController.adjustedTime.padding(toLength: 8, withPad: "0", startingAt: 0))
-                            .font(.system(size: 65, weight: .semibold, design: .monospaced))
-                            .foregroundColor(.white)
                     }
-                    .frame(height: 200)
+                    .padding(.vertical)
+                    .frame(height: 250)
                 }
             }
             .padding(.bottom, 30)

@@ -15,6 +15,7 @@
 		405B79E32A6343F800C2C01A /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79E22A6343F800C2C01A /* ToastView.swift */; };
 		405B79E52A63520B00C2C01A /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79E42A63520B00C2C01A /* SegmentedView.swift */; };
 		405B79E72A64332B00C2C01A /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79E62A64332B00C2C01A /* SplashScreenView.swift */; };
+		405B79E92A653FCD00C2C01A /* AdjustedClockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79E82A653FCD00C2C01A /* AdjustedClockTextView.swift */; };
 		406A643A2A5B43FC004853AF /* TimeStretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A64392A5B43FC004853AF /* TimeStretchApp.swift */; };
 		406A643C2A5B43FC004853AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A643B2A5B43FC004853AF /* ContentView.swift */; };
 		406A643E2A5B43FD004853AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406A643D2A5B43FD004853AF /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		405B79E22A6343F800C2C01A /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		405B79E42A63520B00C2C01A /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		405B79E62A64332B00C2C01A /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		405B79E82A653FCD00C2C01A /* AdjustedClockTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustedClockTextView.swift; sourceTree = "<group>"; };
 		406A64362A5B43FC004853AF /* TimeStretch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStretch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406A64392A5B43FC004853AF /* TimeStretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchApp.swift; sourceTree = "<group>"; };
 		406A643B2A5B43FC004853AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				405B79E22A6343F800C2C01A /* ToastView.swift */,
 				405B79E42A63520B00C2C01A /* SegmentedView.swift */,
+				405B79E82A653FCD00C2C01A /* AdjustedClockTextView.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				405B79D42A5D638D00C2C01A /* TimeController.swift in Sources */,
 				405B79DE2A6176A700C2C01A /* NotificationController.swift in Sources */,
 				405B79E52A63520B00C2C01A /* SegmentedView.swift in Sources */,
+				405B79E92A653FCD00C2C01A /* AdjustedClockTextView.swift in Sources */,
 				405B79E72A64332B00C2C01A /* SplashScreenView.swift in Sources */,
 				406A643C2A5B43FC004853AF /* ContentView.swift in Sources */,
 				406A643A2A5B43FC004853AF /* TimeStretchApp.swift in Sources */,
