@@ -17,9 +17,9 @@ struct SegmentedView: View {
         self.selections = selections
         self.onChange = onChange
         
-        UISegmentedControl.appearance().selectedSegmentTintColor = .purple
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.white
         UISegmentedControl.appearance().backgroundColor = UIColor(Color.purple.opacity(0.3))
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color.white)], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color.purple)], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor(Color.secondary)], for: .normal)
     }
     
@@ -31,11 +31,18 @@ struct SegmentedView: View {
                         .tag(index)
                 }
             }
-            .pickerStyle(.segmented)
-            .tint(.purple)
+            .pickerStyle(SegmentedPickerStyle())
         }
         .onChange(of: currentIndex, perform: { _ in
             onChange?()
         })
+    }
+}
+
+struct SegmentedView_Previews: PreviewProvider {
+    @State private static var selectedHourIndex = 1
+    
+    static var previews: some View {
+        SegmentedView($selectedHourIndex, selections: [16, 18, 20, 24, 30, 32, 36, 40, 45, 48])
     }
 }
