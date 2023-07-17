@@ -29,17 +29,33 @@ struct ContentView: View {
             VStack {
                 HStack {
                     Spacer()
+                    HStack {
+                        Spacer()
+                        Text("Time")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.purple)
+                    }
+                    .frame(width: 80)
+                    .padding(.trailing, -10)
                     Image(timeStretchLogo)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
+                    HStack {
+                        Text("Stretch")
+                            .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.purple)
+                        Spacer()
+                    }
+                    .frame(width: 80)
+                    .padding(.leading, -10)
                     Spacer()
                 }
                 .padding(.top, 10)
                 ZStack {
                     VStack {
                         HStack {
-                            Image(systemName: notificationController.isNotificationsOn ? "bell.fill" : "bell.slash.fill")
+                            Image(systemName: notificationController.isNotificationsOn ? "bell.circle" : "bell.slash.circle")
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.purple)
@@ -99,9 +115,9 @@ struct ContentView: View {
                             Button(action: {
                                 editSelectedHourIndex.toggle()
                             }) {
-                                Image(systemName: "pencil")
+                                Image(systemName: "clock.arrow.2.circlepath")
                                     .resizable()
-                                    .frame(width: 50, height: 50)
+                                    .frame(width: 60, height: 50)
                                     .foregroundColor(.purple)
                                 
                             }

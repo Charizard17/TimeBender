@@ -23,6 +23,9 @@ struct SplashScreenView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 350, height: 350)
+                    Text("TimeStretch")
+                        .font(.system(size:55, weight: .bold))
+                        .foregroundColor(.purple)
                 }
                 .scaleEffect(size)
                 .opacity(opacity)
