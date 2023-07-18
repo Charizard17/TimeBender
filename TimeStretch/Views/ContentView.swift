@@ -44,7 +44,7 @@ struct ContentView: View {
                     HStack {
                         Text("Stretch")
                             .font(.system(size: 20, weight: .bold, design: .monospaced))
-                        .foregroundColor(.purple)
+                            .foregroundColor(.purple)
                         Spacer()
                     }
                     .frame(width: 100)
@@ -104,7 +104,9 @@ struct ContentView: View {
                                     .resizable()
                                     .frame(width: 60, height: 50)
                                     .foregroundColor(.purple)
-                                
+                                    .padding(.vertical, 10)
+                                    .background(Color.white)
+                                    .cornerRadius(15)
                             }
                             Spacer()
                         }
@@ -115,15 +117,18 @@ struct ContentView: View {
                             .shadow(radius: 5)
                             .cornerRadius(80)
                             .frame(height: 250)
+                            .shadow(color: .gray, radius: 10, x: 0, y: 0)
                         VStack {
                             Spacer()
                             VStack {
                                 Text(timeController.adjustedTime.padding(toLength: 8, withPad: "0", startingAt: 0))
                                     .font(.system(size: 60, weight: .bold, design: .monospaced))
-                                .foregroundColor(.white)
+                                    .foregroundColor(.white)
+                                    .shadow(color: .black, radius: 3, x: 0, y: 3)
                                 Text("in \(timeController.hoursInADayInSelectedTimeSystem)-h Clock")
                                     .font(.system(size: 20, design: .monospaced))
                                     .foregroundColor(.white)
+                                    .shadow(color: .black, radius: 1, x: 0, y: 3)
                             }
                             .padding(.top, 30)
                             Spacer()
@@ -131,9 +136,11 @@ struct ContentView: View {
                                 Text(timeController.currentTime)
                                     .font(.system(size: 30, weight: .semibold, design: .monospaced))
                                     .foregroundColor(.white)
+                                    .shadow(color: .black, radius: 1, x: 0, y: 3)
                                 Text("in 24-h Clock")
                                     .font(.system(size: 20, design: .monospaced))
                                     .foregroundColor(.white)
+                                    .shadow(color: .black, radius: 1, x: 0, y: 3)
                             }
                             .padding(.bottom, 10)
                         }
@@ -144,7 +151,7 @@ struct ContentView: View {
             }
             .padding(.bottom, 30)
             .padding(.horizontal, 20)
-            .background(.white)
+            .background(Color.white)
             .onReceive(timer) { _ in
                 timeController.updateTime()
             }
