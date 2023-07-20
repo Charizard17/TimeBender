@@ -16,7 +16,6 @@
 		405B79E52A63520B00C2C01A /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79E42A63520B00C2C01A /* SegmentedView.swift */; };
 		405B79E72A64332B00C2C01A /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79E62A64332B00C2C01A /* SplashScreenView.swift */; };
 		405B79E92A653FCD00C2C01A /* AdjustedClockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B79E82A653FCD00C2C01A /* AdjustedClockTextView.swift */; };
-		405B79FD2A68504800C2C01A /* TimeStretchWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 405B79F02A68504700C2C01A /* TimeStretchWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		405B7A092A68508200C2C01A /* TimeStretchWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A082A68508200C2C01A /* TimeStretchWatchApp.swift */; };
 		405B7A0B2A68508200C2C01A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A0A2A68508200C2C01A /* ContentView.swift */; };
 		405B7A0D2A68508300C2C01A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405B7A0C2A68508300C2C01A /* Assets.xcassets */; };
@@ -32,13 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		405B79FB2A68504800C2C01A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 406A642E2A5B43FC004853AF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 405B79EF2A68504600C2C01A;
-			remoteInfo = "TimeStretchWatch Watch App";
-		};
 		405B7A112A68508300C2C01A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 406A642E2A5B43FC004853AF /* Project object */;
@@ -70,7 +62,6 @@
 			dstSubfolderSpec = 16;
 			files = (
 				405B7A132A68508300C2C01A /* TimeStretchWatch Watch App.app in Embed Watch Content */,
-				405B79FD2A68504800C2C01A /* TimeStretchWatch Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,7 +79,6 @@
 		405B79E42A63520B00C2C01A /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		405B79E62A64332B00C2C01A /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		405B79E82A653FCD00C2C01A /* AdjustedClockTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustedClockTextView.swift; sourceTree = "<group>"; };
-		405B79F02A68504700C2C01A /* TimeStretchWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TimeStretchWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405B7A062A68508200C2C01A /* TimeStretchWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TimeStretchWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405B7A082A68508200C2C01A /* TimeStretchWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchWatchApp.swift; sourceTree = "<group>"; };
 		405B7A0A2A68508200C2C01A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,13 +97,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		405B79ED2A68504600C2C01A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		405B7A032A68508200C2C01A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,7 +201,6 @@
 				406A64362A5B43FC004853AF /* TimeStretch.app */,
 				406A64462A5B43FD004853AF /* TimeStretchTests.xctest */,
 				406A64502A5B43FD004853AF /* TimeStretchUITests.xctest */,
-				405B79F02A68504700C2C01A /* TimeStretchWatch Watch App.app */,
 				405B7A062A68508200C2C01A /* TimeStretchWatch Watch App.app */,
 			);
 			name = Products;
@@ -268,23 +250,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		405B79EF2A68504600C2C01A /* TimeStretchWatch Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 405B79FE2A68504800C2C01A /* Build configuration list for PBXNativeTarget "TimeStretchWatch Watch App" */;
-			buildPhases = (
-				405B79EC2A68504600C2C01A /* Sources */,
-				405B79ED2A68504600C2C01A /* Frameworks */,
-				405B79EE2A68504600C2C01A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "TimeStretchWatch Watch App";
-			productName = "TimeStretchWatch Watch App";
-			productReference = 405B79F02A68504700C2C01A /* TimeStretchWatch Watch App.app */;
-			productType = "com.apple.product-type.application";
-		};
 		405B7A052A68508200C2C01A /* TimeStretchWatch Watch App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 405B7A142A68508300C2C01A /* Build configuration list for PBXNativeTarget "TimeStretchWatch Watch App" */;
@@ -314,7 +279,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				405B79FC2A68504800C2C01A /* PBXTargetDependency */,
 				405B7A122A68508300C2C01A /* PBXTargetDependency */,
 			);
 			name = TimeStretch;
@@ -368,9 +332,6 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					405B79EF2A68504600C2C01A = {
-						CreatedOnToolsVersion = 14.3;
-					};
 					405B7A052A68508200C2C01A = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -403,20 +364,12 @@
 				406A64352A5B43FC004853AF /* TimeStretch */,
 				406A64452A5B43FD004853AF /* TimeStretchTests */,
 				406A644F2A5B43FD004853AF /* TimeStretchUITests */,
-				405B79EF2A68504600C2C01A /* TimeStretchWatch Watch App */,
 				405B7A052A68508200C2C01A /* TimeStretchWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		405B79EE2A68504600C2C01A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		405B7A042A68508200C2C01A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,13 +405,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		405B79EC2A68504600C2C01A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		405B7A022A68508200C2C01A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,11 +452,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		405B79FC2A68504800C2C01A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 405B79EF2A68504600C2C01A /* TimeStretchWatch Watch App */;
-			targetProxy = 405B79FB2A68504800C2C01A /* PBXContainerItemProxy */;
-		};
 		405B7A122A68508300C2C01A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 405B7A052A68508200C2C01A /* TimeStretchWatch Watch App */;
@@ -529,66 +470,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		405B79FF2A68504800C2C01A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TimeStretchWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 75YQ4354B7;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = TimeStretchWatch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Charizard17.TimeStretch;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Charizard17.TimeStretch.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.4;
-			};
-			name = Debug;
-		};
-		405B7A002A68504800C2C01A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TimeStretchWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 75YQ4354B7;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = TimeStretchWatch;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Charizard17.TimeStretch;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Charizard17.TimeStretch.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.4;
-			};
-			name = Release;
-		};
 		405B7A152A68508300C2C01A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -916,15 +797,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		405B79FE2A68504800C2C01A /* Build configuration list for PBXNativeTarget "TimeStretchWatch Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				405B79FF2A68504800C2C01A /* Debug */,
-				405B7A002A68504800C2C01A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		405B7A142A68508300C2C01A /* Build configuration list for PBXNativeTarget "TimeStretchWatch Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
