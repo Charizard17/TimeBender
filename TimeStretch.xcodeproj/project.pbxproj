@@ -179,7 +179,7 @@
 				405B7A1C2A6B266000C2C01A /* Controllers */,
 				405B7A172A6B261800C2C01A /* Helpers */,
 				405B7A082A68508200C2C01A /* TimeStretchWatchApp.swift */,
-				405B7A0A2A68508200C2C01A /* ContentView.swift */,
+				405B7A212A6BD56700C2C01A /* Views */,
 				405B7A0C2A68508300C2C01A /* Assets.xcassets */,
 				405B7A0E2A68508300C2C01A /* Preview Content */,
 			);
@@ -210,6 +210,14 @@
 				405B7A1F2A6B268C00C2C01A /* NotificationController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		405B7A212A6BD56700C2C01A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				405B7A0A2A68508200C2C01A /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		406A642D2A5B43FC004853AF = {
