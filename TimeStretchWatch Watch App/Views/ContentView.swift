@@ -14,6 +14,7 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+                Spacer()
                 VStack {
                     Text("33:22:44".padding(toLength: 8, withPad: "0", startingAt: 0))
                         .font(.system(size: 35, weight: .bold, design: .monospaced))
@@ -23,6 +24,26 @@ struct ContentView: View {
                         .font(.system(size: 15, design: .monospaced))
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 1, x: 0, y: 3)
+                }
+                Spacer()
+                HStack {
+                    Button(action: {
+                        //
+                    }) {
+                        Image(systemName: "clock.arrow.2.circlepath")
+                            .resizable()
+                            .frame(width: 30, height: 25)
+                            .foregroundColor(.white)
+                    }
+                    Spacer()
+                    Button(action: {
+                        //
+                    }) {
+                        Image(systemName: "bell.circle")
+                            .resizable()
+                            .frame(width: 30, height: 25)
+                            .foregroundColor(.white)
+                    }
                 }
             }
         }

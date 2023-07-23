@@ -176,9 +176,9 @@
 		405B7A072A68508200C2C01A /* TimeStretchWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				405B7A082A68508200C2C01A /* TimeStretchWatchApp.swift */,
 				405B7A1C2A6B266000C2C01A /* Controllers */,
 				405B7A172A6B261800C2C01A /* Helpers */,
-				405B7A082A68508200C2C01A /* TimeStretchWatchApp.swift */,
 				405B7A212A6BD56700C2C01A /* Views */,
 				405B7A0C2A68508300C2C01A /* Assets.xcassets */,
 				405B7A0E2A68508300C2C01A /* Preview Content */,
