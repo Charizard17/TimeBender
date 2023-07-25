@@ -14,7 +14,14 @@ struct ContentView: View {
     @State private var isBellTapped = false
     
     @State private var editSelectedHourIndex = false
-    @State private var selectedHourIndex = 1
+    @State private var selectedHourIndex: Int
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    init() {
+        let storedHourIndex = UserDefaults.standard.integer(forKey: selectedHourIndexKey)
+        _selectedHourIndex = State(initialValue: storedHourIndex)
+    }
     
     var body: some View {
         ZStack {
@@ -26,11 +33,11 @@ struct ContentView: View {
                     Spacer()
                 }
                 VStack {
-                    Text("33:22:44".padding(toLength: 8, withPad: "0", startingAt: 0))
+                    Text(timeController.adjustedTime.padding(toLength: 8, withPad: "0", startingAt: 0))
                         .font(.system(size: 30, weight: .bold, design: .monospaced))
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 3, x: 0, y: 3)
-                    Text("in 40-h Clock")
+                    Text("in \(timeController.hoursInADayInSelectedTimeSystem)-h Clock")
                         .font(.system(size: 15, design: .monospaced))
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 1, x: 0, y: 3)
@@ -39,7 +46,7 @@ struct ContentView: View {
                 if editSelectedHourIndex {
                     Spacer()
                     SegmentedView($selectedHourIndex, selections: Array(timeController.validHourOptions)) {
-                        // Add any action you want to perform when the selection changes
+                        // toast?
                     }
                 } else {
                     Spacer()
@@ -66,6 +73,12 @@ struct ContentView: View {
                 }
             }
             .padding(.horizontal)
+            .onReceive(timer) { _ in
+                timeController.updateTime()
+            }
+            .onChange(of: selectedHourIndex) { _ in
+                timeController.selectedHourIndex = selectedHourIndex
+            }
         }
     }
 }

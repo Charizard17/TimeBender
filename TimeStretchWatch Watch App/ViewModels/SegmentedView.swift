@@ -34,7 +34,7 @@ struct SegmentedView: View {
                         }
                 }
             }
-            .padding()
+            .padding(.bottom, 5)
         }
     }
 }
