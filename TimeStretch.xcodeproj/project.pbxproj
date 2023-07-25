@@ -25,6 +25,7 @@
 		405B7A1B2A6B264500C2C01A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A1A2A6B264500C2C01A /* Constants.swift */; };
 		405B7A1E2A6B267100C2C01A /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A1D2A6B267100C2C01A /* TimeController.swift */; };
 		405B7A202A6B268C00C2C01A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A1F2A6B268C00C2C01A /* NotificationController.swift */; };
+		405B7A242A7067FE00C2C01A /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A232A7067FE00C2C01A /* SegmentedView.swift */; };
 		406A643A2A5B43FC004853AF /* TimeStretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A64392A5B43FC004853AF /* TimeStretchApp.swift */; };
 		406A643C2A5B43FC004853AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A643B2A5B43FC004853AF /* ContentView.swift */; };
 		406A643E2A5B43FD004853AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406A643D2A5B43FD004853AF /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		405B7A1A2A6B264500C2C01A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		405B7A1D2A6B267100C2C01A /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		405B7A1F2A6B268C00C2C01A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		405B7A232A7067FE00C2C01A /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		406A64362A5B43FC004853AF /* TimeStretch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStretch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406A64392A5B43FC004853AF /* TimeStretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchApp.swift; sourceTree = "<group>"; };
 		406A643B2A5B43FC004853AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				405B7A082A68508200C2C01A /* TimeStretchWatchApp.swift */,
 				405B7A1C2A6B266000C2C01A /* Controllers */,
 				405B7A172A6B261800C2C01A /* Helpers */,
+				405B7A222A7067E900C2C01A /* ViewModels */,
 				405B7A212A6BD56700C2C01A /* Views */,
 				405B7A0C2A68508300C2C01A /* Assets.xcassets */,
 				405B7A0E2A68508300C2C01A /* Preview Content */,
@@ -218,6 +221,14 @@
 				405B7A0A2A68508200C2C01A /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		405B7A222A7067E900C2C01A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				405B7A232A7067FE00C2C01A /* SegmentedView.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		406A642D2A5B43FC004853AF = {
@@ -445,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405B7A242A7067FE00C2C01A /* SegmentedView.swift in Sources */,
 				405B7A202A6B268C00C2C01A /* NotificationController.swift in Sources */,
 				405B7A1E2A6B267100C2C01A /* TimeController.swift in Sources */,
 				405B7A192A6B262A00C2C01A /* TimeUtils.swift in Sources */,

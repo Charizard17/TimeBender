@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isClockArrowTapped = false
+    
+    @StateObject var timeController: TimeController = TimeController()
+    
     @State private var isBellTapped = false
-
+    
+    @State private var editSelectedHourIndex = false
+    @State private var selectedHourIndex = 1
+    
     var body: some View {
         ZStack {
             Color.purple
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Spacer()
+                if !editSelectedHourIndex {
+                    Spacer()
+                }
                 VStack {
                     Text("33:22:44".padding(toLength: 8, withPad: "0", startingAt: 0))
                         .font(.system(size: 30, weight: .bold, design: .monospaced))
@@ -28,16 +35,23 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 1, x: 0, y: 3)
                 }
-                Spacer()
+                //                Spacer()
+                if editSelectedHourIndex {
+                    Spacer()
+                    SegmentedView($selectedHourIndex, selections: Array(timeController.validHourOptions)) {
+                        // Add any action you want to perform when the selection changes
+                    }
+                } else {
+                    Spacer()
+                }
                 HStack {
                     Image(systemName: "clock.arrow.2.circlepath")
                         .resizable()
                         .frame(width: 30, height: 25)
-                        .foregroundColor(isClockArrowTapped ? .gray : .white)
-                        .scaleEffect(isClockArrowTapped ? 0.8 : 1.0)
+                        .foregroundColor(.white)
+                        .scaleEffect(editSelectedHourIndex ? 1.2 : 1.0)
                         .onTapGesture {
-                            isClockArrowTapped.toggle()
-                            print("clock arrow 2")
+                            editSelectedHourIndex.toggle()
                         }
                     Spacer()
                     Image(systemName: "bell.circle")
