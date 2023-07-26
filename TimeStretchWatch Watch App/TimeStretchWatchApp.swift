@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct TimeStretchWatch_Watch_AppApp: App {
+    // Set up the ExtensionDelegate as the delegate for the Watch App
+    @WKExtensionDelegateAdaptor(ExtensionDelegate.self) var extensionDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

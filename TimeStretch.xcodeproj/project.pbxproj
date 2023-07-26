@@ -26,6 +26,7 @@
 		405B7A1E2A6B267100C2C01A /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A1D2A6B267100C2C01A /* TimeController.swift */; };
 		405B7A202A6B268C00C2C01A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A1F2A6B268C00C2C01A /* NotificationController.swift */; };
 		405B7A242A7067FE00C2C01A /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A232A7067FE00C2C01A /* SegmentedView.swift */; };
+		405B7A2F2A71726700C2C01A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B7A2E2A71726700C2C01A /* ExtensionDelegate.swift */; };
 		406A643A2A5B43FC004853AF /* TimeStretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A64392A5B43FC004853AF /* TimeStretchApp.swift */; };
 		406A643C2A5B43FC004853AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A643B2A5B43FC004853AF /* ContentView.swift */; };
 		406A643E2A5B43FD004853AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406A643D2A5B43FD004853AF /* Assets.xcassets */; };
@@ -94,6 +95,8 @@
 		405B7A1D2A6B267100C2C01A /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		405B7A1F2A6B268C00C2C01A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		405B7A232A7067FE00C2C01A /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
+		405B7A2E2A71726700C2C01A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		405B7A302A71774700C2C01A /* TimeStretchWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TimeStretchWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		406A64362A5B43FC004853AF /* TimeStretch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStretch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406A64392A5B43FC004853AF /* TimeStretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchApp.swift; sourceTree = "<group>"; };
 		406A643B2A5B43FC004853AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -178,7 +181,9 @@
 		405B7A072A68508200C2C01A /* TimeStretchWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				405B7A302A71774700C2C01A /* TimeStretchWatch-Watch-App-Info.plist */,
 				405B7A082A68508200C2C01A /* TimeStretchWatchApp.swift */,
+				405B7A2E2A71726700C2C01A /* ExtensionDelegate.swift */,
 				405B7A1C2A6B266000C2C01A /* Controllers */,
 				405B7A172A6B261800C2C01A /* Helpers */,
 				405B7A222A7067E900C2C01A /* ViewModels */,
@@ -258,13 +263,13 @@
 			children = (
 				405B79D72A5F428100C2C01A /* TimeStretch.entitlements */,
 				406A64392A5B43FC004853AF /* TimeStretchApp.swift */,
+				405B79DF2A6184A600C2C01A /* AppDelegate.swift */,
 				405B79D82A61613600C2C01A /* Helpers */,
 				405B79E12A6343EC00C2C01A /* ViewModels */,
 				405B79D12A5D635A00C2C01A /* Views */,
 				405B79D22A5D636D00C2C01A /* Controllers */,
 				406A643D2A5B43FD004853AF /* Assets.xcassets */,
 				406A643F2A5B43FD004853AF /* Preview Content */,
-				405B79DF2A6184A600C2C01A /* AppDelegate.swift */,
 			);
 			path = TimeStretch;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405B7A2F2A71726700C2C01A /* ExtensionDelegate.swift in Sources */,
 				405B7A242A7067FE00C2C01A /* SegmentedView.swift in Sources */,
 				405B7A202A6B268C00C2C01A /* NotificationController.swift in Sources */,
 				405B7A1E2A6B267100C2C01A /* TimeController.swift in Sources */,
@@ -533,6 +539,7 @@
 				DEVELOPMENT_TEAM = 75YQ4354B7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TimeStretchWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TimeStretchWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Charizard17.TimeStretch;
@@ -563,6 +570,7 @@
 				DEVELOPMENT_TEAM = 75YQ4354B7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TimeStretchWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TimeStretchWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Charizard17.TimeStretch;
