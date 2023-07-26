@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import WatchConnectivity
 
 struct ContentView: View {
     @ObservedObject private var notificationController = NotificationController.shared
@@ -75,10 +74,6 @@ struct ContentView: View {
         }
         .onChange(of: timeController.selectedHourIndex) { newIndex in
             timeController.selectedHourIndex = timeController.selectedHourIndex
-        }
-        .onAppear {
-            // Make sure to activate the WCSession when the ContentView appears.
-            WCSession.default.activate()
         }
     }
 }
