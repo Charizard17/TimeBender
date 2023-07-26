@@ -59,15 +59,18 @@ struct ContentView: View {
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(.purple)
+                                .rotationEffect(notificationController.isNotificationsOn ? .degrees(360) : .degrees(0))
                                 .onTapGesture {
-                                    notificationController.isNotificationsOn.toggle()
-                                    UserDefaults.standard.set(notificationController.isNotificationsOn, forKey: isNotificationsOnKey)
-                                    notificationController.scheduleHourlyNotifications(
-                                        hoursInADay: timeController.hoursInADayInSelectedTimeSystem,
-                                        minutesInAHour: timeController.minutesInAHourInSelectedTimeSystem,
-                                        secondsInAMinute: timeController.secondsInAMinuteInSelectedTimeSystem
-                                    )
-                                    showNotificationsToast = true
+                                    withAnimation(.linear(duration: 0.3)) {
+                                        notificationController.isNotificationsOn.toggle()
+                                        UserDefaults.standard.set(notificationController.isNotificationsOn, forKey: isNotificationsOnKey)
+                                        notificationController.scheduleHourlyNotifications(
+                                            hoursInADay: timeController.hoursInADayInSelectedTimeSystem,
+                                            minutesInAHour: timeController.minutesInAHourInSelectedTimeSystem,
+                                            secondsInAMinute: timeController.secondsInAMinuteInSelectedTimeSystem
+                                        )
+                                        showNotificationsToast = true
+                                    }
                                 }
                             Spacer()
                             Button(action: {
@@ -97,17 +100,16 @@ struct ContentView: View {
                             .padding(.bottom, 20)
                         }
                         HStack {
-                            Button(action: {
-                                editSelectedHourIndex.toggle()
-                            }) {
-                                Image(systemName: "clock.arrow.2.circlepath")
-                                    .resizable()
-                                    .frame(width: 60, height: 50)
-                                    .foregroundColor(.purple)
-                                    .padding(.vertical, 10)
-                                    .background(Color.white)
-                                    .cornerRadius(15)
-                            }
+                            Image(systemName: "clock.arrow.2.circlepath")
+                                .resizable()
+                                .frame(width: 60, height: 50)
+                                .foregroundColor(.purple)
+                                .rotationEffect(editSelectedHourIndex ? .degrees(180) : .degrees(0))
+                                .onTapGesture {
+                                    withAnimation(.linear(duration: 0.3)) {
+                                        editSelectedHourIndex.toggle()
+                                    }
+                                }
                             Spacer()
                         }
                     }

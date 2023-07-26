@@ -54,7 +54,7 @@ class NotificationController: ObservableObject {
                 if let error = error {
                     print("Error scheduling hourly notification: \(error)")
                 } else {
-                    print("Hourly notification scheduled for adjusted time: \(adjustedTimeForNotificationContent), triggered time: \(triggeredTime)")
+                    print("WatchApp notifications AdjustedTime: \(adjustedTimeForNotificationContent), TriggeredTime: \(triggeredTime)")
                 }
             }
         }

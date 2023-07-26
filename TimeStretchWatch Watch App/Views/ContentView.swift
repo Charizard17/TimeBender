@@ -6,22 +6,15 @@
 //
 
 import SwiftUI
+import WatchConnectivity
 
 struct ContentView: View {
-    
+    @ObservedObject private var notificationController = NotificationController.shared
     @StateObject var timeController: TimeController = TimeController()
     
-    @State private var isBellTapped = false
-    
     @State private var editSelectedHourIndex = false
-    @State private var selectedHourIndex: Int
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    init() {
-        let storedHourIndex = UserDefaults.standard.integer(forKey: selectedHourIndexKey)
-        _selectedHourIndex = State(initialValue: storedHourIndex)
-    }
     
     var body: some View {
         ZStack {
@@ -42,10 +35,9 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 1, x: 0, y: 3)
                 }
-                //                Spacer()
                 if editSelectedHourIndex {
                     Spacer()
-                    SegmentedView($selectedHourIndex, selections: Array(timeController.validHourOptions)) {
+                    SegmentedView($timeController.selectedHourIndex, selections: Array(timeController.validHourOptions)) {
                         // toast?
                     }
                 } else {
@@ -54,35 +46,42 @@ struct ContentView: View {
                 HStack {
                     Image(systemName: "clock.arrow.2.circlepath")
                         .resizable()
-                        .frame(width: 30, height: 25)
+                        .frame(width: 36, height: 30)
                         .foregroundColor(.white)
-                        .scaleEffect(editSelectedHourIndex ? 1.2 : 1.0)
+                        .rotationEffect(editSelectedHourIndex ? .degrees(180) : .degrees(0))
                         .onTapGesture {
-                            editSelectedHourIndex.toggle()
+                            withAnimation(.linear(duration: 0.3)) {
+                                editSelectedHourIndex.toggle()
+                            }
                         }
                     Spacer()
-                    Image(systemName: "bell.circle")
+                    Image(systemName: notificationController.isNotificationsOn ? "bell.circle" : "bell.slash.circle")
                         .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(isBellTapped ? .gray : .white)
-                        .scaleEffect(isBellTapped ? 0.8 : 1.0)
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.white)
+                        .rotationEffect(notificationController.isNotificationsOn ? .degrees(360) : .degrees(0))
                         .onTapGesture {
-                            isBellTapped.toggle()
-                            print("bell circle")
+                            withAnimation(.linear(duration: 0.3)) {
+                                notificationController.isNotificationsOn.toggle()
+                                UserDefaults.standard.set(notificationController.isNotificationsOn, forKey: isNotificationsOnKey)
+                            }
                         }
                 }
             }
             .padding(.horizontal)
-            .onReceive(timer) { _ in
-                timeController.updateTime()
-            }
-            .onChange(of: selectedHourIndex) { _ in
-                timeController.selectedHourIndex = selectedHourIndex
-            }
+        }
+        .onReceive(timer) { _ in
+            timeController.updateTime()
+        }
+        .onChange(of: timeController.selectedHourIndex) { newIndex in
+            timeController.selectedHourIndex = timeController.selectedHourIndex
+        }
+        .onAppear {
+            // Make sure to activate the WCSession when the ContentView appears.
+            WCSession.default.activate()
         }
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
