@@ -13,7 +13,7 @@ struct ContentView: View {
     
     @State private var selectedHourIndex: Int
     @State private var editSelectedHourIndex = false
-    @State private var showNotificationsToast = false
+    @State private var showNotificationsText = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -39,7 +39,7 @@ struct ContentView: View {
                         .onAppear {
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                    showNotificationsToast = false
+                                    showNotificationsText = false
                                 }
                             }
                         }
@@ -55,11 +55,11 @@ struct ContentView: View {
                         .font(.system(size: 13))
                         .foregroundColor(.white)
                         .padding(.top, 1)
-                        .opacity(showNotificationsToast ? 1.0 : 0.0)
+                        .opacity(showNotificationsText ? 1.0 : 0.0)
                         .onAppear {
-                            if showNotificationsToast {
+                            if showNotificationsText {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-                                    showNotificationsToast = false
+                                    showNotificationsText = false
                                 }
                             }
                         }
@@ -98,7 +98,7 @@ struct ContentView: View {
                                     minutesInAHour: timeController.minutesInAHourInSelectedTimeSystem,
                                     secondsInAMinute: timeController.secondsInAMinuteInSelectedTimeSystem
                                 )
-                                showNotificationsToast = true
+                                showNotificationsText = true
                             }
                         }
                 }
