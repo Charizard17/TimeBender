@@ -51,18 +51,20 @@ struct ContentView: View {
                         .font(.system(size: 15, design: .monospaced))
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 1, x: 0, y: 3)
-                    Text(notificationController.isNotificationsOn ? notificationsActivated : notificationsDeactivated)
-                        .font(.system(size: 13))
-                        .foregroundColor(.white)
-                        .padding(.top, 1)
-                        .opacity(showNotificationsText ? 1.0 : 0.0)
-                        .onAppear {
-                            if showNotificationsText {
+                    if showNotificationsText {
+                        Text(notificationController.isNotificationsOn ? notificationsActivated : notificationsDeactivated)
+                            .font(.system(size: 13))
+                            .foregroundColor(.white)
+                            .padding(.top, 1)
+                            .opacity(showNotificationsText ? 1.0 : 0.0)
+                            .onAppear {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-                                    showNotificationsText = false
+                                    withAnimation {
+                                        showNotificationsText = false
+                                    }
                                 }
                             }
-                        }
+                    }
                 }
                 if editSelectedHourIndex {
                     Spacer()
