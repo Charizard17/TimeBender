@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var selectedHourIndex: Int
     @State private var editSelectedHourIndex = false
     @State private var showNotificationsText = false
+    @State private var showSelectedHourChangedText = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -51,25 +52,44 @@ struct ContentView: View {
                         .font(.system(size: 15, design: .monospaced))
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 1, x: 0, y: 3)
-                    if showNotificationsText {
-                        Text(notificationController.isNotificationsOn ? notificationsActivated : notificationsDeactivated)
-                            .font(.system(size: 13))
-                            .foregroundColor(.white)
-                            .padding(.top, 1)
-                            .opacity(showNotificationsText ? 1.0 : 0.0)
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-                                    withAnimation {
-                                        showNotificationsText = false
+                    ZStack {
+                        if showNotificationsText {
+                            Text(notificationController.isNotificationsOn ? notificationsActivated : notificationsDeactivated)
+                                .font(.system(size: 13))
+                                .foregroundColor(.white)
+                                .padding(.top, 1)
+                                .opacity(showNotificationsText ? 1.0 : 0.0)
+                                .onAppear {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                                        withAnimation {
+                                            showNotificationsText = false
+                                        }
                                     }
                                 }
+                        }
+                        if showSelectedHourChangedText {
+                            ZStack {
+                                Color.purple
+                                Text("\(timeController.hoursInADayInSelectedTimeSystem)-h Clock selected")
+                                    .font(.system(size: 13))
+                                    .foregroundColor(.white)
+                                    .padding(.top, 1)
+                                    .opacity(showSelectedHourChangedText ? 1.0 : 0.0)
+                                    .onAppear {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                                            withAnimation {
+                                                showSelectedHourChangedText = false
+                                            }
+                                        }
+                                    }
                             }
+                        }
                     }
                 }
                 if editSelectedHourIndex {
                     Spacer()
                     SegmentedView($selectedHourIndex, selections: Array(timeController.validHourOptions)) {
-                        // toast?
+                        showSelectedHourChangedText = true
                     }
                 } else {
                     Spacer()
@@ -83,6 +103,7 @@ struct ContentView: View {
                         .onTapGesture {
                             withAnimation(.linear(duration: 0.3)) {
                                 editSelectedHourIndex.toggle()
+                                showSelectedHourChangedText = true
                             }
                         }
                     Spacer()
