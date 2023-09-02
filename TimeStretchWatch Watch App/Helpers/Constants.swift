@@ -13,4 +13,4 @@ let notificationsActivated = "Notifications activated"
 let notificationsDeactivated = "Notifications deactivated"
 
 //MARK: - Assets
-let timeStretchLogo = "TimeStretchLogo"
+let timeStretchLogo2 = "TimeStretchLogo2"

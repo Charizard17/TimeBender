@@ -11,11 +11,13 @@ struct SegmentedView: View {
     @Binding var currentIndex: Int
     var selections: [Int]
     var onChange: (() -> Void)?
+    var isDevice41mm: Bool
     
-    init(_ currentIndex: Binding<Int>, selections: [Int], onChange: (() -> Void)? = nil) {
+    init(_ currentIndex: Binding<Int>, selections: [Int], isDevice41mm: Bool, onChange: (() -> Void)? = nil) {
         self._currentIndex = currentIndex
         self.selections = selections
         self.onChange = onChange
+        self.isDevice41mm = isDevice41mm
     }
     
     var body: some View {
@@ -23,9 +25,9 @@ struct SegmentedView: View {
             HStack(spacing: 6) {
                 ForEach(selections, id: \.self) { selection in
                     Text("\(selection)")
-                        .font(.system(size: 18))
+                        .font(.system(size: isDevice41mm ? 16 : 18))
                         .foregroundColor(currentIndex == selections.firstIndex(of: selection) ? .purple : .black)
-                        .padding(6)
+                        .padding(isDevice41mm ? 4 : 6)
                         .background(currentIndex == selections.firstIndex(of: selection) ? Color.white : Color.gray)
                         .cornerRadius(6)
                         .onTapGesture {
