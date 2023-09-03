@@ -46,6 +46,6 @@ struct SegmentedView_Previews: PreviewProvider {
     @State private static var selectedHourIndex = 1
     
     static var previews: some View {
-        SegmentedView($selectedHourIndex, selections: [16, 18, 20, 24, 30, 32, 36, 40, 45, 48])
+        SegmentedView($selectedHourIndex, selections: [16, 18, 20, 24, 30, 32, 36, 40, 45, 48], isDevice41mm: true)
     }
 }
