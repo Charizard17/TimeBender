@@ -31,9 +31,6 @@
 		406A643C2A5B43FC004853AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A643B2A5B43FC004853AF /* ContentView.swift */; };
 		406A643E2A5B43FD004853AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406A643D2A5B43FD004853AF /* Assets.xcassets */; };
 		406A64412A5B43FD004853AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406A64402A5B43FD004853AF /* Preview Assets.xcassets */; };
-		406A644B2A5B43FD004853AF /* TimeStretchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A644A2A5B43FD004853AF /* TimeStretchTests.swift */; };
-		406A64552A5B43FD004853AF /* TimeStretchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A64542A5B43FD004853AF /* TimeStretchUITests.swift */; };
-		406A64572A5B43FD004853AF /* TimeStretchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406A64562A5B43FD004853AF /* TimeStretchUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,20 +40,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 405B7A052A68508200C2C01A;
 			remoteInfo = "TimeStretchWatch Watch App";
-		};
-		406A64472A5B43FD004853AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 406A642E2A5B43FC004853AF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 406A64352A5B43FC004853AF;
-			remoteInfo = TimeStretch;
-		};
-		406A64512A5B43FD004853AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 406A642E2A5B43FC004853AF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 406A64352A5B43FC004853AF;
-			remoteInfo = TimeStretch;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -96,17 +79,12 @@
 		405B7A1F2A6B268C00C2C01A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		405B7A232A7067FE00C2C01A /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		405B7A2E2A71726700C2C01A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		405B7A302A71774700C2C01A /* TimeStretchWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "TimeStretchWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		406A64362A5B43FC004853AF /* TimeStretch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStretch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406A64392A5B43FC004853AF /* TimeStretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchApp.swift; sourceTree = "<group>"; };
 		406A643B2A5B43FC004853AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		406A643D2A5B43FD004853AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		406A64402A5B43FD004853AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		406A64462A5B43FD004853AF /* TimeStretchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeStretchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		406A644A2A5B43FD004853AF /* TimeStretchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchTests.swift; sourceTree = "<group>"; };
-		406A64502A5B43FD004853AF /* TimeStretchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeStretchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		406A64542A5B43FD004853AF /* TimeStretchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchUITests.swift; sourceTree = "<group>"; };
-		406A64562A5B43FD004853AF /* TimeStretchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStretchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		40C54CBF2AA50B080036CB4F /* TimeStretchWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TimeStretchWatch Watch App.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,20 +96,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		406A64332A5B43FC004853AF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		406A64432A5B43FD004853AF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		406A644D2A5B43FD004853AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -181,7 +145,7 @@
 		405B7A072A68508200C2C01A /* TimeStretchWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				405B7A302A71774700C2C01A /* TimeStretchWatch-Watch-App-Info.plist */,
+				40C54CBF2AA50B080036CB4F /* TimeStretchWatch Watch App.entitlements */,
 				405B7A082A68508200C2C01A /* TimeStretchWatchApp.swift */,
 				405B7A2E2A71726700C2C01A /* ExtensionDelegate.swift */,
 				405B7A1C2A6B266000C2C01A /* Controllers */,
@@ -240,8 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				406A64382A5B43FC004853AF /* TimeStretch */,
-				406A64492A5B43FD004853AF /* TimeStretchTests */,
-				406A64532A5B43FD004853AF /* TimeStretchUITests */,
 				405B7A072A68508200C2C01A /* TimeStretchWatch Watch App */,
 				406A64372A5B43FC004853AF /* Products */,
 			);
@@ -251,8 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				406A64362A5B43FC004853AF /* TimeStretch.app */,
-				406A64462A5B43FD004853AF /* TimeStretchTests.xctest */,
-				406A64502A5B43FD004853AF /* TimeStretchUITests.xctest */,
 				405B7A062A68508200C2C01A /* TimeStretchWatch Watch App.app */,
 			);
 			name = Products;
@@ -280,23 +240,6 @@
 				406A64402A5B43FD004853AF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		406A64492A5B43FD004853AF /* TimeStretchTests */ = {
-			isa = PBXGroup;
-			children = (
-				406A644A2A5B43FD004853AF /* TimeStretchTests.swift */,
-			);
-			path = TimeStretchTests;
-			sourceTree = "<group>";
-		};
-		406A64532A5B43FD004853AF /* TimeStretchUITests */ = {
-			isa = PBXGroup;
-			children = (
-				406A64542A5B43FD004853AF /* TimeStretchUITests.swift */,
-				406A64562A5B43FD004853AF /* TimeStretchUITestsLaunchTests.swift */,
-			);
-			path = TimeStretchUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,42 +281,6 @@
 			productReference = 406A64362A5B43FC004853AF /* TimeStretch.app */;
 			productType = "com.apple.product-type.application";
 		};
-		406A64452A5B43FD004853AF /* TimeStretchTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 406A645D2A5B43FD004853AF /* Build configuration list for PBXNativeTarget "TimeStretchTests" */;
-			buildPhases = (
-				406A64422A5B43FD004853AF /* Sources */,
-				406A64432A5B43FD004853AF /* Frameworks */,
-				406A64442A5B43FD004853AF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				406A64482A5B43FD004853AF /* PBXTargetDependency */,
-			);
-			name = TimeStretchTests;
-			productName = TimeStretchTests;
-			productReference = 406A64462A5B43FD004853AF /* TimeStretchTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		406A644F2A5B43FD004853AF /* TimeStretchUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 406A64602A5B43FD004853AF /* Build configuration list for PBXNativeTarget "TimeStretchUITests" */;
-			buildPhases = (
-				406A644C2A5B43FD004853AF /* Sources */,
-				406A644D2A5B43FD004853AF /* Frameworks */,
-				406A644E2A5B43FD004853AF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				406A64522A5B43FD004853AF /* PBXTargetDependency */,
-			);
-			name = TimeStretchUITests;
-			productName = TimeStretchUITests;
-			productReference = 406A64502A5B43FD004853AF /* TimeStretchUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -389,14 +296,6 @@
 					};
 					406A64352A5B43FC004853AF = {
 						CreatedOnToolsVersion = 14.3;
-					};
-					406A64452A5B43FD004853AF = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = 406A64352A5B43FC004853AF;
-					};
-					406A644F2A5B43FD004853AF = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = 406A64352A5B43FC004853AF;
 					};
 				};
 			};
@@ -414,8 +313,6 @@
 			projectRoot = "";
 			targets = (
 				406A64352A5B43FC004853AF /* TimeStretch */,
-				406A64452A5B43FD004853AF /* TimeStretchTests */,
-				406A644F2A5B43FD004853AF /* TimeStretchUITests */,
 				405B7A052A68508200C2C01A /* TimeStretchWatch Watch App */,
 			);
 		};
@@ -437,20 +334,6 @@
 			files = (
 				406A64412A5B43FD004853AF /* Preview Assets.xcassets in Resources */,
 				406A643E2A5B43FD004853AF /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		406A64442A5B43FD004853AF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		406A644E2A5B43FD004853AF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,23 +373,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		406A64422A5B43FD004853AF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				406A644B2A5B43FD004853AF /* TimeStretchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		406A644C2A5B43FD004853AF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				406A64552A5B43FD004853AF /* TimeStretchUITests.swift in Sources */,
-				406A64572A5B43FD004853AF /* TimeStretchUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -514,16 +380,6 @@
 			isa = PBXTargetDependency;
 			target = 405B7A052A68508200C2C01A /* TimeStretchWatch Watch App */;
 			targetProxy = 405B7A112A68508300C2C01A /* PBXContainerItemProxy */;
-		};
-		406A64482A5B43FD004853AF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 406A64352A5B43FC004853AF /* TimeStretch */;
-			targetProxy = 406A64472A5B43FD004853AF /* PBXContainerItemProxy */;
-		};
-		406A64522A5B43FD004853AF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 406A64352A5B43FC004853AF /* TimeStretch */;
-			targetProxy = 406A64512A5B43FD004853AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -533,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TimeStretchWatch Watch App/TimeStretchWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeStretchWatch Watch App/Preview Content\"";
@@ -564,6 +421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TimeStretchWatch Watch App/TimeStretchWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeStretchWatch Watch App/Preview Content\"";
@@ -778,82 +636,6 @@
 			};
 			name = Release;
 		};
-		406A645E2A5B43FD004853AF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75YQ4354B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Charizard17.TimeStretchTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeStretch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TimeStretch";
-			};
-			name = Debug;
-		};
-		406A645F2A5B43FD004853AF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75YQ4354B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Charizard17.TimeStretchTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeStretch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TimeStretch";
-			};
-			name = Release;
-		};
-		406A64612A5B43FD004853AF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75YQ4354B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Charizard17.TimeStretchUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TimeStretch;
-			};
-			name = Debug;
-		};
-		406A64622A5B43FD004853AF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75YQ4354B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Charizard17.TimeStretchUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TimeStretch;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -880,24 +662,6 @@
 			buildConfigurations = (
 				406A645B2A5B43FD004853AF /* Debug */,
 				406A645C2A5B43FD004853AF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		406A645D2A5B43FD004853AF /* Build configuration list for PBXNativeTarget "TimeStretchTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				406A645E2A5B43FD004853AF /* Debug */,
-				406A645F2A5B43FD004853AF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		406A64602A5B43FD004853AF /* Build configuration list for PBXNativeTarget "TimeStretchUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				406A64612A5B43FD004853AF /* Debug */,
-				406A64622A5B43FD004853AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
