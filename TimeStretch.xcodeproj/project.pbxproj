@@ -391,7 +391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "TimeStretchWatch Watch App/TimeStretchWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeStretchWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 75YQ4354B7;
 				ENABLE_PREVIEWS = YES;
@@ -422,7 +422,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "TimeStretchWatch Watch App/TimeStretchWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeStretchWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 75YQ4354B7;
 				ENABLE_PREVIEWS = YES;
@@ -568,7 +568,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TimeStretch/TimeStretch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeStretch/Preview Content\"";
 				DEVELOPMENT_TEAM = 75YQ4354B7;
 				ENABLE_PREVIEWS = YES;
@@ -605,7 +605,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TimeStretch/TimeStretch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeStretch/Preview Content\"";
 				DEVELOPMENT_TEAM = 75YQ4354B7;
 				ENABLE_PREVIEWS = YES;
